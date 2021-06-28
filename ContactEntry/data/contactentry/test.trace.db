@@ -1,0 +1,53 @@
+2021-06-24 19:57:13 jdbc[48]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-200]
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:245)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:186)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:358)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:477)
+	at com.zaxxer.hikari.pool.HikariPool.access$100(HikariPool.java:71)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:725)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:711)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection was not closed by the application and is garbage collected [90018-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:622)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 18 more
+2021-06-25 00:28:41 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE CONTACTENTRY
+(
+    ID           INT NOT NULL PRIMARY KEY,
+    FIRST_NAME   VARCHAR(250) NOT NULL,
+    MIDDLE_NAME  VARCHAR(250),
+    LAST_NAME    VARCHAR(250) NOT NULL,
+    STREET       VARCHAR(250) NOT NULL,
+    CITY         VARCHAR(250) NOT NULL,
+    STATE        VARCHAR(250) NOT NULL,
+    ZIP          VARCHAR(250) NOT NULL,
+    PHONE_NUMBER VARCHAR(250) NOT NULL,
+    PHONE_TYPE   VARCHAR(250) NOT NULL,
+    EMAIL        VARCHAR(250) NOT NULL,
+)[*]"; expected "identifier"; SQL statement:
+CREATE TABLE contactentry
+(
+    id           INT NOT NULL PRIMARY KEY,
+    first_name   VARCHAR(250) NOT NULL,
+    middle_name  VARCHAR(250),
+    last_name    VARCHAR(250) NOT NULL,
+    street       VARCHAR(250) NOT NULL,
+    city         VARCHAR(250) NOT NULL,
+    state        VARCHAR(250) NOT NULL,
+    zip          VARCHAR(250) NOT NULL,
+    phone_number VARCHAR(250) NOT NULL,
+    phone_type   VARCHAR(250) NOT NULL,
+    email        VARCHAR(250) NOT NULL,
+) [42001-200]
