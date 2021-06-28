@@ -1,7 +1,7 @@
 # Contact-Entry
 Contact Entry System
 
-#Using Postman to test the application once deployed
+#Use Postman to test the application once deployed
 Following are the URLs
 
 Create Contact
